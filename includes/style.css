@@ -382,11 +382,11 @@ nav a:hover
 /* Element to move */
 #butterfly
 {
-	width: 329px;
-	height: 252px;
+	width: 259px;
+	height: 226px;
 	position: absolute;
-	top: 220px;
-	left: 1970px;
+	top: 240px;
+	left: 2020px;
 	z-index: 999;
 }
 
@@ -459,7 +459,7 @@ nav a:hover
 	background: url(../images/close-button.png);
 	position: absolute;
 	top: 30px;
-	left: 1300px;
+	left: 95%;
 	border: 0;
 	cursor: pointer;
 	display: none;
