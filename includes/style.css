@@ -1,3 +1,11 @@
+/*-----------------------------------------------
+Purpose: Main CSS File
+Version: 0.2
+Author: Shimi Kahlon
+Designer: Eldad Tzadok
+Date: 11-7-13
+-----------------------------------------------*/
+
 *{
 	margin: 0;
 	padding: 0;
@@ -455,4 +463,5 @@ nav a:hover
 	border: 0;
 	cursor: pointer;
 	display: none;
+	z-index: 1001;
 }
