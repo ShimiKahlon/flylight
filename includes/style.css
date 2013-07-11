@@ -1,0 +1,458 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+@font-face
+{
+	font-family: 'Open Sans Light', sans-serif;
+	src: url(http://fonts.googleapis.com/css?family=Open+Sans),
+		local('Open Sans Light');
+}
+
+/* Elements animation */
+
+/* Arrows animation */
+@keyframes point-down {
+	from {
+		top: 0;
+	}
+	to {
+		top: 5px;
+	}
+}
+
+@-webkit-keyframes point-down {
+	from {
+		top: 0;
+	}
+	to {
+		top: 5px;
+	}
+}
+
+/* Bullets animation */
+@keyframes bullet1
+{
+	from {
+		left: 2718px; 
+		top: 13px;
+	}
+	to {
+		left: 2500px;
+		top: 0;
+	}
+}
+
+@-webkit-keyframes bullet1
+{
+	from {
+		left: 2718px; 
+		top: 13px;
+	}
+	to {
+		left: 2500px;
+		top: 0;
+	}
+}
+
+@keyframes bullet2
+{
+	from {
+		left: 2629px;
+		top: 536px;
+	}
+	to {
+		left: 2000px;
+		top: 500px;
+	}
+}
+
+@-webkit-keyframes bullet2
+{
+	from {
+		left: 2629px;
+		top: 536px;
+	}
+	to {
+		left: 2000px;
+		top: 500px;
+	}
+}
+
+@keyframes bullet5
+{
+	from {
+		left: 2706px;
+		top: 372px;
+	}
+	to {
+		left: 2600px;
+		top: 400px;
+	}
+}
+
+@-webkit-keyframes bullet5
+{
+	from {
+		left: 2706px;
+		top: 372px;
+	}
+	to {
+		left: 2600px;
+		top: 400px;
+	}
+}
+
+
+body
+{
+	font-family: 'Open Sans Light', sans-serif;
+	color: #FFFFFF;
+	font-size: 14pt;
+	background: #000000;
+	overflow: hidden;
+}
+
+header, nav, section, article, aside, footer, p, a, ul, li
+{
+	color: #FFFFFF;
+}
+
+h1
+{
+	font-size: 32pt;
+	line-height: 36pt;
+	font-family: 'Open Sans Light';
+}
+
+#wrapper
+{
+	width: 4440px;
+	height: 6134px;
+	/*background-color: yellow;*/
+}
+
+.clear
+{
+	clear: both;
+}
+
+#flylight, #idea, #concept, #design, #gallery, #project, #video
+{
+	width: 1280px;
+	height: 814px;
+	position: absolute;
+	/*background-color: #000000;*/
+}
+#idea article h1, #design article h1, #gallery article h1, #project article h1 
+{
+	float: left;
+	margin-right: 3.5%;
+}
+
+#idea article p, #concept article p, #design article p, #gallery article p, #project article p
+{
+	float: left;
+	padding-top: 0.2em;
+}
+
+/* Flylight section */
+#flylight
+{
+	/*background: url(../images/flylight.png);*/
+	top: 0;
+	left: 1580px;
+}
+
+#flylight article.mainArticle
+{
+	width: 16%;
+	position: relative;
+	top: 45%;
+	left: 45%;
+	text-align: center;
+}
+
+#flylight article.secondary
+{
+	width: 8%;
+	position: absolute;
+	top: 74.5%;
+	left: 50%;
+	font-size: 10.5pt;
+	text-align: center;
+}
+
+#flylight article.secondary img.arrows
+{
+	position: relative;
+	animation: point-down 0.5s alternate infinite;
+	-webkit-animation: point-down 0.5s alternate infinite;
+}
+/* End Flylight section */
+
+/* Idea section */
+#idea
+{
+	background: none;
+	top: 1324px;
+	left: 3160px;
+}
+
+#idea article
+{
+	width: 60%;
+	position: relative;
+	top: 33%;
+	left: 24%;
+}
+/* End Idea section */
+
+/* Concept section */
+#concept
+{
+	background: url(../images/concept.png);
+	top: 1324px;
+	left: 1580px;
+}
+
+#concept article
+{
+	width: 65%;
+	position: relative;
+	top: 50%;
+	left: 19%;
+}
+
+#concept article h1
+{
+	float: left;
+	margin-right: 3%;
+}
+/* End Concept section */
+
+/* Design section */
+#design
+{
+	background: url(../images/design.png);
+	top: 2672px;
+	left: 0;
+}
+
+#design article
+{
+	width: 60%;
+	position: relative;
+	top: 38%;
+	left: 39%;
+}
+
+#design article p
+{
+	padding-top: 0.5em;
+}
+/* End Design section */
+
+/* Video section */
+#video
+{
+	top: 2671px;
+	left: 1580px;
+	z-index: 1000;
+}
+
+video
+{
+	width: 100%;
+	height: 80%;
+	background: rgba(104, 104, 104, 0.5);
+}
+/* End video section */
+
+/* Gallery section */
+#gallery
+{
+	background: url(../images/gallery.png);
+	top: 3995px;
+	left: 1580px;
+}
+
+#gallery article
+{
+	width: 40%;
+	position: relative;
+	top: 51%;
+	left: 37%;
+}
+/* End Gallery section */
+
+/* Project section */
+#project
+{
+	top: 5320px;
+	left: 1580px;
+}
+
+#project article
+{
+	width: 85%;
+	position: relative;
+	top: 40%;
+	left: 16%;
+}
+/* End Project section */
+
+
+#flylightBottom
+{
+	width: 1280px;
+	height: 512px;
+	position: absolute;
+	top: 813px;
+	left: 1580px;
+	background: url(../images/flylight_btm.png);
+}
+
+#flylightRight
+{
+	width: 300px;
+	height: 2671px;
+	position: absolute;
+	top: 0px;
+	left: 2860px;
+	background: url(../images/flylightRight2.png) no-repeat;
+}
+
+#conceptRight
+{
+	width: 300px;
+	height: 1347px;
+	position: absolute;
+	top: 1324px;
+	left: 2860px;
+	background: url(../images/conceptRight.png) no-repeat;
+}
+
+#conceptBottom
+{
+	width: 1280px;
+	height: 533px;
+	position: absolute;
+	top: 2138px;
+	left: 1580px;
+	background: url(../images/conceptBottom.png);
+}
+
+nav
+{
+	width: 100%;
+	top: 60px;
+	left: 0;
+	margin: 0 auto;
+	position: fixed;
+	z-index: 100;
+}
+
+nav a:link, nav a:visited
+{
+	width: 7%;
+	position: relative;
+	left: 28%;
+	font-size: 10pt;
+	text-decoration: none;
+	text-align: center;
+	float: left;
+	display: block;
+}
+
+nav a:hover
+{
+	color: silver;
+}
+
+/* Element to move */
+#butterfly
+{
+	width: 329px;
+	height: 252px;
+	position: absolute;
+	top: 220px;
+	left: 1970px;
+	z-index: 999;
+}
+
+
+.bullet1, .bullet2, .bullet3, .bullet4, .bullet5, .bullet6, .wing
+{
+	position: absolute;
+	z-index: 100;
+}
+
+.bullet1
+{
+	animation: bullet1 5s infinite alternate;
+	-webkit-animation: bullet1 12s infinite alternate;
+}
+
+.bullet2
+{
+	animation: bullet2 20s linear infinite alternate;
+	-webkit-animation: bullet2 20s linear infinite alternate;
+}
+
+.bullet3
+{
+	left: 1656px;
+	top: 787px;
+}
+
+.bullet4
+{
+	left: 2345px;
+	top: 690px;
+}
+
+.bullet5
+{
+	animation: bullet5 4s linear infinite alternate;
+	-webkit-animation: bullet5 4s linear infinite alternate;
+}
+
+.bullet6
+{
+	left: 2627px;
+	top: 737px;
+}
+
+
+.wing
+{
+	left: 2520px;
+	top: 1938px;*
+}
+
+#playbtn
+{
+	width: 71px;
+	height: 72px;
+	background: url(../images/playbtn.png);
+	position: absolute;
+	top: 378px;
+	left: 526px;
+	border: 0;
+	cursor: pointer;
+}
+
+#closebtn
+{
+	width: 29px;
+	height: 29px;
+	background: url(../images/close-button.png);
+	position: absolute;
+	top: 30px;
+	left: 1300px;
+	border: 0;
+	cursor: pointer;
+	display: none;
+}
