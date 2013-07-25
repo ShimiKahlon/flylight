@@ -5,39 +5,34 @@ $(document).ready(init);
 
 function init() {
 
-    var leftRight = true;
-
-	$.fn.scrollPath("getPath")
-
-	.moveTo(2220, 313, {
-            callback: function() {
-                $("nav a:nth-child(1)").css({"background": "url(images/menuBar.png) no-repeat center"});
-            },  
-            name: "flylight"
-        })
-	.lineTo(2700, 360)
-	.arc(2700, 760, 400, 1.5*Math.PI, 0*Math.PI, false)
-	.arc(3766, 1246, 400, 1*Math.PI, 0.5*Math.PI, true, {name: "idea"})
-	.lineTo(2220, 1637, {name: "concept"})
+	var $path = $.fn.scrollPath("getPath")
+    .moveTo(2220, 313, {
+        callback: function() {
+            $("nav a:nth-child(1)").css({"background": "url(images/menuBar.png) no-repeat center"});
+        },  
+        name: "flylight"
+    })
+    .lineTo(3766, 1646, {name: "idea"})
+    .lineTo(2220, 1646, {name: "concept"})
     .lineTo(1600, 1700)
-    .arc(1600, 2100, 400, 1.5*Math.PI, 1*Math.PI, true)
-	.arc(675, 2585, 400, 0*Math.PI, 0.5*Math.PI, false, {name: "design"})
-	.lineTo(2220, 4308, {name: "gallery"})
-	.lineTo(2220, 5750, {name: "project"});
+    .lineTo(682, 2972, {name: "design"})
+    .lineTo(2220, 4298, {name: "gallery"})
+    .lineTo(2220, 5624, {name: "project"});    
 
 	$("#wrapper").scrollPath({drawPath: false, wrapAround: false});
-	//window.onscroll = getPos;
-	//$(window).scroll(getPos());
-    console.log("DD");
-    
+
+    getPos();
+    showHideVideo();
+
 	$("nav").find("a").each(function() {
-		var target = $(this).attr("href").replace("#", "");
+        var target = $(this).attr("href").replace("#", "");
+
 		$(this).click(function(e) {
 			e.preventDefault();
 
-			$.fn.scrollPath("scrollTo", target, 4000, "easeInOutSine");
-			
-			$("nav").fadeOut(4000, function() {
+			$.fn.scrollPath("scrollTo", target, 3000, "easeInOutSine");
+
+			$("nav").fadeOut(3000, function() {
 				$("nav").fadeIn('slow');
 			});
 		});
@@ -45,42 +40,32 @@ function init() {
 }
 
 
-$(document).ready(function() {
-
+// Butterfly's path
+function getPos() {
+       
     var showOrHide = true;
+    var butterfly = $("#butterfly");
 
+    // First link
     $("nav a:nth-child(1)").click(function() {
-        $("#butterfly").each(function() {
-            var position = $("#butterfly").position();
-            console.log(position);
+        butterfly.each(function() {
+
+            var position = butterfly.position();
 
             if(position.left >= 3160 && position.left <= 4440)
             {
                 if(position.top >= 1324 && position.top <= 2138)
                 {
-                    $("#butterfly").css({"transform": "rotateY(180deg)"}).animate({
-                        left: '-=400',
-                        top: '-=890',
-                        width: '+=48',
-                        height: '+=39'
-                    }, 2400, 'easeInOutSine', function() {
-                        $("#butterfly").animate({
-                            left: '-=290',
-                            top: '-=400',
-                            width: '+=48',
-                            height: '+=40'
-                        }, 700, 'easeInOutSine', function() {
-                            $("#butterfly").animate({
-                                left: '-=700',
-                                width: '+=49',
-                                height: '+=40'
-                            }, 1000, 'easeInOutSine', function() {
-                                $("#idea").css({"background": "none"});
-                                $("nav a:nth-child(1)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                                $("nav a:nth-child(2)").css({"background" : "none"});
-                                $("#butterfly").css({"transform": "rotateY(0deg)"});
-                            });
-                        });
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(180deg)"}).animate({
+                        left: '-=1340',
+                        top: '-=1340',
+                        width:'+=67',
+                        height: '+=49'
+                    }, 4000, 'easeInOutSine', function() {
+                        butterfly.attr({src: "images/logo_home.png"}).css({"transform": "rotateY(0deg)"});
+                        $(".light").fadeOut(500);
+                        $("nav a:nth-child(1)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                        $("nav a:nth-child(2)").css({"background" : "none"});
                     });
                 }
             }
@@ -88,13 +73,13 @@ $(document).ready(function() {
             {
                 if(position.top >= 1324 && position.top <= 2138)
                 {
-                    $("#butterfly").attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(180deg)"}).animate({
-                        left: '-=325',
-                        top: '-=1245',
-                        width: '+=105',
-                        height: '+=127'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("#butterfly").css({"transform": "rotateY(0deg)"});
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(180deg)"}).animate({
+                        left: '-=555',
+                        top: '-=1268',
+                        width:'+=67',
+                        height: '+=49'
+                    }, 3000, 'easeInOutSine', function() {
+                        butterfly.attr({src: "images/logo_home.png"}).css({"transform": "rotateY(0deg)"});
                         $("nav a:nth-child(1)").css({"background" : "url(images/menuBar.png) no-repeat center"});
                         $("nav a:nth-child(3)").css({"background" : "none"});
                     });
@@ -104,28 +89,31 @@ $(document).ready(function() {
             {
                 if(position.top >= 2670 && position.top <= 3695)
                 {
-                    $("#butterfly").css({"transform": "rotateY(0deg)"}).animate({
-                        left: '+=1850',
-                        top: '-=2575',
-                        width: '+=74',
-                        height: '+=64'
-                    }, 4000, 'easeInOutSine', function() {
+                    butterfly.attr({src: "images/logosmall.gif"}).animate({
+                        left: '+=1855',
+                        top: '-=2628',
+                        width:'+=67',
+                        height: '+=49'
+                    }, 3300, 'easeInOutSine', function() {
+                        butterfly.attr({src: "images/logo_home.png"});
                         $("nav a:nth-child(1)").css({"background" : "url(images/menuBar.png) no-repeat center"});
                         $("nav a:nth-child(4)").css({"background" : "none"});
                     });
+
+                    backWing(); // Returns the wing from design section to concept section
                 }
             }
             if(position.left >= 1580 && position.left <= 2860)
             {
                 if(position.top >= 3995 && position.top <= 4810)
                 {
-                    $("#butterfly").css({"transform": "rotateY(180deg)"}).animate({
-                        left: '-=110',
-                        top: '-=4040',
-                        width: '+=106',
-                        height: '+=105'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("#butterfly").css({"transform": "rotateY(0deg)"});
+                    butterfly.attr({src: "images/logosmall.gif"}).animate({
+                        left: '+=185',
+                        top: '-=3938',
+                        width:'+=67',
+                        height: '+=49'
+                    }, 3500, 'easeInOutSine', function() {
+                        butterfly.attr({src: "images/logo_home.png"});
                         $("nav a:nth-child(1)").css({"background" : "url(images/menuBar.png) no-repeat center"});
                         $("nav a:nth-child(5)").css({"background" : "none"});
                     });
@@ -135,12 +123,13 @@ $(document).ready(function() {
             {
                 if(position.top >= 5319 && position.top <= 6133)
                 {
-                    $("#butterfly").animate({
-                        left: '+=310',
-                        top: '-=5330',
-                        width: '+=110',
-                        height: '+=90'
-                    }, 4000, 'easeInOutSine', function() {
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(0deg)"}).animate({
+                        left: '+=185',
+                        top: '-=5423',
+                        width:'+=67',
+                        height: '+=49'
+                    }, 3500, 'easeInOutSine', function() {
+                        butterfly.attr({src: "images/logo_home.png"});
                         $("nav a:nth-child(1)").css({"background" : "url(images/menuBar.png) no-repeat center"});
                         $("nav a:nth-child(6)").css({"background" : "none"});
                     });
@@ -148,51 +137,52 @@ $(document).ready(function() {
             }
         });
     });
+    // End first link
 
+    // Second link
     $("nav a:nth-child(2)").click(function() {
-        $("#butterfly").each(function() {
-            var position = $("#butterfly").position();
-            console.log(position);
+        butterfly.each(function() {
+
+            var position = butterfly.position();
+            
             if(position.left >= 1580 && position.left <= 2860)
             {
                 if(position.top >= 0 && position.top <= 814)
                 {
-                    $("#butterfly").animate({
-                        left: '+=700'
-                    }, 1000, 'easeInOutSine', function() {
-                        $("#butterfly").animate({
-                            left: '+=290',
-                            top: '+=400',
-                            width: '-=72',
-                            height: '-=59'
-                        }, 800, 'easeInOutSine', function() {
-                            $("#butterfly").animate({
-                                left: '+=400',
-                                top: '+=890',
-                                width: '-=73',
-                                height: '-=60'
-                            }, 2000, 'easeInOutSine', function() {
-                                $("#idea").css({"background": "url(images/idea.png)"});
-                                $("nav a:nth-child(2)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                                $("nav a:nth-child(1)").css({"background" : "none"});
-                            });
+                    butterfly.attr({src: "images/logosmall.gif"}).animate({
+                        left: '+=1320',
+                        top: '+=1320',
+                        width: '-=67',
+                        height: '-=49'
+                    }, 3000, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.7).animate({
+                            left: '+=20',
+                            top: '+=20'
+                        }, 40, 'easeOutSine', function() {
+                            butterfly.fadeTo(30, 1).attr({src: "images/logo_small.png"});
+                            $(".light").fadeIn(500);                              
+                            $("nav a:nth-child(2)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(1)").css({"background" : "none"});
                         });
-                    });        
+                    });
                 }
             }
             if(position.left >= 1580 && position.left <= 2860)
             {
                 if(position.top >= 1324 && position.top <= 2138)
                 {
-                    $("#butterfly").attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(0deg)"}).animate({
-                        left: '+=1080',
-                        top: '+=50',
-                        width: '-=40',
-                        height: '+=8'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("#idea").css({"background": "url(images/idea.png)"});
-                        $("nav a:nth-child(2)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(3)").css({"background" : "none"});
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(0deg)"}).animate({
+                        left: '+=765',
+                        top: '+=72'
+                    }, 2800, 'easeInOutSine', function() {
+                        butterfly.fadeTo(15, 0.5).animate({
+                            left: '+=20'
+                        }, 10, 'easeOutSine', function() {
+                            butterfly.fadeTo(75, 1).attr({src: "images/logo_small.png"});
+                            $(".light").fadeIn(500);
+                            $("nav a:nth-child(2)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(3)").css({"background" : "none"});
+                        });
                     });
                 }
             }
@@ -200,29 +190,35 @@ $(document).ready(function() {
             {
                 if(position.top >= 2670 && position.top <= 3695)
                 {
-                    $("#butterfly").animate({
-                        left: '+=3240',
-                        top: '-=1285',
-                        width: '-=41',
-                        height: '-=55'
-                    }, 4000, 'easeInOutSine',function() {
+                    butterfly.attr({src: "images/logosmall.gif"}).animate({
+                        left: '+=3195',
+                        top: '-=1288'
+                    }, 3400, 'easeInOutSine',function() {
+                        butterfly.attr({src: "images/logo_small.png"});
+                        $(".light").fadeIn(500);
                         $("nav a:nth-child(2)").css({"background" : "url(images/menuBar.png) no-repeat center"});
                         $("nav a:nth-child(4)").css({"background" : "none"});
                     });
+
+                    backWing(); // Returns the wing from design section to concept section
                 }
             }
             if(position.left >= 1580 && position.left <= 2860)
             {
                 if(position.top >= 3995 && position.top <= 4810)
                 {
-                    $("#butterfly").animate({
-                        left: '+=1280',
-                        top: '-=2750',
-                        width: '-=39',
-                        height: '-=14'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("nav a:nth-child(2)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(5)").css({"background" : "none"});
+                    butterfly.attr({src: "images/logosmall.gif"}).animate({
+                        left: '+=1515',
+                        top: '-=2598'
+                    }, 3200, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.5).animate({
+                            left: '+=10'
+                        }, 5, 'easeOutSine', function() {
+                            butterfly.fadeTo(10, 1).attr({src: "images/logo_small.png"});
+                            $(".light").fadeIn(500);
+                            $("nav a:nth-child(2)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(5)").css({"background" : "none"});
+                        });
                     });   
                 }
             }
@@ -230,12 +226,12 @@ $(document).ready(function() {
             {
                 if(position.top >= 5319 && position.top <= 6133)
                 {
-                    $("#butterfly").animate({
-                        left: '+=1700',
-                        top: '-=4040',
-                        width: '-=35',
-                        height: '-=29'
-                    }, 4000, 'easeInOutSine', function() {
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(0deg)"}).animate({
+                        left: '+=1525',
+                        top: '-=4083'
+                    }, 3200, 'easeInOutSine', function() {
+                        butterfly.attr({src: "images/logo_small.png"});
+                        $(".light").fadeIn(500);
                         $("nav a:nth-child(2)").css({"background" : "url(images/menuBar.png) no-repeat center"});
                         $("nav a:nth-child(6)").css({"background" : "none"}); 
                     });
@@ -243,24 +239,32 @@ $(document).ready(function() {
             }
         });
     });
+    // End second link
     
+    // Third link
     $("nav a:nth-child(3)").click(function() {
-        $("#butterfly").each(function() {
-            var position = $("#butterfly").position();
-            console.log(position);
+        butterfly.each(function() {
+
+            var position = butterfly.position();
+            
             if(position.left >= 1580 && position.left <= 2860)
             {
                 if(position.top >= 0 && position.top <= 814)
                 {
-                    $("#butterfly").animate({
-                        left: '+=325',
-                        top: '+=1245',
-                        width: '-=105',
-                        height: '-=127'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("#butterfly").attr({src: "images/flylighthex.png"});
-                        $("nav a:nth-child(3)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(1)").css({"background" : "none"});
+                    butterfly.attr({src: "images/logosmall.gif"}).animate({
+                        left: '+=550',
+                        top: '+=1258',
+                        width: '-=67',
+                        height: '-=49'
+                    }, 3000, 'easeInOutSine', function() {
+                        butterfly.fadeTo(20, 0.3).animate({
+                            left: '+=5',
+                            top: '+=10'
+                        }, 70, 'easeInOutSine', function() {
+                            butterfly.fadeTo(100, 1).attr({src: "images/logo_hex.png"});
+                            $("nav a:nth-child(3)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(1)").css({"background" : "none"});
+                        });
                     });
                 }
             }
@@ -268,66 +272,58 @@ $(document).ready(function() {
             {
                 if(position.top >= 1324 && position.top <= 2138)
                 {
-                    $("#butterfly").css({"transform": "rotateY(180deg)"});
-                    $("#butterfly").animate({
-                        left: '-=1065',
-                        top: '-=45',
-                        width: '+=40',
-                        height: '-=8'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("#butterfly").attr({src: "images/flylighthex.png"}).css({"transform": "rotateY(0deg)"});
-                        $("#idea").css({"background": "none"});
-                        $("nav a:nth-child(3)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(2)").css({"background" : "none"});
-                    });       
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(180deg)"}).animate({
+                        left: '-=765',
+                        top: '-=72'
+                    }, 3000, 'easeInSine', function() {
+                        butterfly.fadeTo(25, 0.3).animate({
+                            left: '-=20'
+                        }, 90, 'easeInOutSine', function() {
+                            butterfly.fadeTo(75, 1).attr({src: "images/logo_hex.png"}).css({"transform": "rotateY(0deg)"});
+                            $(".light").fadeOut(500);
+                            $("nav a:nth-child(3)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(2)").css({"background" : "none"});
+                        }); 
+                    });      
                 }
             }
             if(position.left >= 0 && position.left <= 1280)
             {
                 if(position.top >= 2670 && position.top <= 3695)
                 {
-                    $("#butterfly").animate({
-                        left: '+=775',
-                        top: '-=80',
-                        width: '-=16',
-                        height: '-=32'
-                    }, 800, 'easeInOutSine', function() {
-                        $("#butterfly").animate({
-                            left: '+=200',
-                            top: '-=700',
-                            width: '-=15',
-                            height: '-=31'
-                        }, 1100, 'easeInOutSine', function() {
-                            $("#butterfly").animate({
-                                left: '+=300',
-                                top: '-=400'
-                            }, 600, 'easeInOutSine', function() {
-                                $("#butterfly").animate({
-                                    left: '+=885',
-                                    top: '-=155'
-                                }, 1400, 'easeInOutSine', function() {
-                                    $("nav a:nth-child(3)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                                    $("nav a:nth-child(4)").css({"background" : "none"});
-                                    $("#butterfly").attr({src: "images/flylighthex.png"}).css({"transform": "rotateY(180deg)"});
-                                })
-                            })
-                        })
-                    })
+                    butterfly.attr({src: "images/logosmall.gif"}).animate({
+                        left: '+=2390',
+                        top: '-=1340'
+                    }, 3500, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.3).animate({
+                            left: '+=20',
+                            top: '-=20'
+                        }, 50, 'easeInOutSine', function() {
+                            butterfly.fadeTo(30, 1).attr({src: "images/logo_hex.png"});
+                            $("nav a:nth-child(3)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(4)").css({"background" : "none"});
+                        });
+                    });
+
+                    backWing(); // Returns the wing from design section to concept section
                 }
             }
             if(position.left >= 1580 && position.left <= 2860)
             {
                 if(position.top >= 3995 && position.top <= 4810)
                 {
-                    $("#butterfly").animate({
-                        left: '+=230',
-                        top: '-=2795',
-                        width: '+=1',
-                        height: '-=22'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("#butterfly").attr({src: "images/flylighthex.png"});
-                        $("nav a:nth-child(3)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(5)").css({"background" : "none"});
+                    butterfly.attr({src: "images/logosmall.gif"}).animate({
+                        left: '+=720',
+                        top: '-=2650'
+                    }, 3200, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.3).animate({
+                            left: '+=20',
+                            top: '-=20'
+                        }, 50, 'easeInOutSine', function() {
+                            butterfly.fadeTo(30, 1).attr({src: "images/logo_hex.png"});
+                            $("nav a:nth-child(3)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(5)").css({"background" : "none"});
+                        });
                     });   
                 }
             }
@@ -335,278 +331,167 @@ $(document).ready(function() {
             {
                 if(position.top >= 5319 && position.top <= 6133)
                 {
-                    $("#butterfly").animate({
-                        left: '+=635',
-                        top: '-=4085',
-                        width: '+=5',
-                        height: '-=37'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("#butterfly").attr({src: "images/flylighthex.png"});
-                        $("nav a:nth-child(3)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(6)").css({"background" : "none"});
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(0deg)"}).animate({
+                        left: '+=720',
+                        top: '-=4135'
+                    }, 3500, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.3).animate({
+                            left: '+=20',
+                            top: '-=20'
+                        }, 100, 'easeInOutSine', function() {
+                            butterfly.fadeTo(30, 1).attr({src: "images/logo_hex.png"});
+                            $("nav a:nth-child(3)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(6)").css({"background" : "none"});
+                        });
                     });
                 }
             }
         });
     });
-    
+    // End third link
+
+    // Fourth link
     $("nav a:nth-child(4)").click(function() {
-        $("#butterfly").each(function() {
-            var position = $("#butterfly").position();
-            console.log(position);
+        butterfly.each(function() {
+
+            var position = butterfly.position();
+            
             if(position.left >= 1580 && position.left <= 2860)
             {
                 if(position.top >= 0 && position.top <= 814)
                 {
-                    $("#butterfly").css({"transform": "rotateY(180deg)"}).animate({
-                        left: '-=1850',
-                        top: '+=2575',
-                        width: '-=74',
-                        height: '-=64'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("#butterfly").css({"transform": "rotateY(0deg)"});
-                        $("nav a:nth-child(4)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(1)").css({"background" : "none"});
-                    });
-                    $(".wing").animate({
-                        left: '-=20',
-                        top: '-=300'
-                    }, 500, 'easeInOutSine', function() {
-                        $(".wing").animate({
-                            left: '-=900',
-                            top: '-=50'
-                        }, 1000, 'easeInOutSine', function() {
-                            $(".wing").animate({
-                                left: '-=320',
-                                top: '+=320'
-                            }, 500, 'easeInOutSine', function() {
-                                $(".wing").animate({
-                                    left: '-=200',
-                                    top: '+=700'
-                                }, 1000, 'easeInOutSine', function() {
-                                    $(".wing").animate({
-                                        left: '-=755',
-                                        top: '+=400'
-                                    }, 1000, 'easeInOutSine', function() {
-                                        $(".wing").css({"transform" : "rotateY(340deg)"});
-                                        $(".wing").css({"transform" : "rotateZ(348deg)"});
-                                    });
-                                });
-                            });
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(180deg)"}).animate({
+                        left: '-=1845',
+                        top: '+=2608',
+                        width: '-=67',
+                        height: '-=49'
+                    }, 3200, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.7).animate({
+                            left: '-=10',
+                            top: '+=20'
+                        }, 80, 'easeOutSine', function() {
+                            butterfly.fadeTo(30, 1).attr({src: "images/logo_small.png"}).css({"transform": "rotateY(0deg)"});
+                            $("nav a:nth-child(4)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(1)").css({"background" : "none"});
                         });
                     });
+                    
+                    rotateWing();   // Rotates the butterfly's wing from concept to design
                 }
             }
             if(position.left >= 3160 && position.left <= 4440)
             {
                 if(position.top >= 1324 && position.top <= 2138)
                 {
-                    $("#butterfly").css({"transform": "rotateY(180deg)"}).animate({
-                        left: '-=3240',
-                        top: '+=1285',
-                        width: '+=41',
-                        height: '+=55'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("#butterfly").css({"transform": "rotateY(0deg)"});
-                        $("nav a:nth-child(4)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(2)").css({"background" : "none"});
-                    });
-
-                    $(".wing").animate({
-                        left: '-=20',
-                        top: '-=300'
-                    }, 500, 'easeInOutSine', function() {
-                        $(".wing").animate({
-                            left: '-=900',
-                            top: '-=50'
-                        }, 1000, 'easeInOutSine', function() {
-                            $(".wing").animate({
-                                left: '-=320',
-                                top: '+=320'
-                            }, 500, 'easeInOutSine', function() {
-                                $(".wing").animate({
-                                    left: '-=200',
-                                    top: '+=700'
-                                }, 1000, 'easeInOutSine', function() {
-                                    $(".wing").animate({
-                                        left: '-=755',
-                                        top: '+=400'
-                                    }, 1000, 'easeInOutSine', function() {
-                                        $(".wing").css({"transform" : "rotateY(340deg)"});
-                                        $(".wing").css({"transform" : "rotateZ(348deg)"});
-                                    });
-                                });
-                            });
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(180deg)"}).animate({
+                        left: '-=3185',
+                        top: '+=1278'
+                    }, 3200, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.7).animate({
+                            left: '-=10',
+                            top: '+=10'
+                        }, 80, 'easeOutSine', function() {
+                            butterfly.fadeTo(30, 1).attr({src: "images/logo_small.png"}).css({"transform": "rotateY(0deg)"});
+                            $(".light").fadeOut(500);
+                            $("nav a:nth-child(4)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(2)").css({"background" : "none"});
                         });
                     });
+                    
+                    rotateWing();   // Rotates the butterfly's wing from concept to design
                 }
             }
             if(position.left >= 1580 && position.left <= 2860)
             {
                 if(position.top >= 1324 && position.top <= 2138)
                 {
-                    $("#butterfly").attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(180deg)"});
-                        $("#butterfly").animate({
-                            left: '-=900',
-                            top: '+=150'
-                        }, 1400, 'easeInOutSine', function() {
-                            $("#butterfly").animate({
-                                left: '-=300',
-                                top: '+=400'
-                            }, 600, 'easeInOutSine', function() {
-                                $("#butterfly").animate({
-                                    left: '-=200',
-                                    top: '+=700',
-                                    width: '+=15',
-                                    height: '+=31'
-                                }, 1000, 'easeInOutSine', function() {
-                                    $("#butterfly").animate({
-                                        left: '-=775',
-                                        top: '+=80',
-                                        width: '+=16',
-                                        height: '+=32'
-                                }, 500, 'easeInOutSine', function() {
-                                    $("nav a:nth-child(4)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                                    $("nav a:nth-child(3)").css({"background" : "none"});
-                                    $("#butterfly").css({"transform": "rotateY(0deg)"});
-                                });    
-                            });
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(180deg)"}).animate({
+                        left: '-=2400',
+                        top: '+=1350'
+                    }, 3200, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.7).animate({
+                            left: '-=10',
+                            top: '+=10'
+                        }, 80, 'easeOutSine', function() {
+                            butterfly.fadeTo(30, 1).css({"transform": "rotateY(0deg)"}).attr({src: "images/logo_small.png"});
+                            $("nav a:nth-child(4)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(3)").css({"background" : "none"});
                         });
-                    });    
-                    $(".wing").animate({
-                        left: '-=20',
-                        top: '-=300'
-                    }, 500, 'easeInOutSine', function() {
-                        $(".wing").animate({
-                            left: '-=900',
-                            top: '-=50'
-                        }, 1000, 'easeInOutSine', function() {
-                            $(".wing").animate({
-                                left: '-=320',
-                                top: '+=320'
-                            }, 500, 'easeInOutSine', function() {
-                                $(".wing").animate({
-                                    left: '-=200',
-                                    top: '+=700'
-                                }, 1000, 'easeInOutSine', function() {
-                                    $(".wing").animate({
-                                        left: '-=755',
-                                        top: '+=400'
-                                    }, 1000, 'easeInOutSine', function() {
-                                        $(".wing").css({"transform" : "rotateY(340deg)"});
-                                        $(".wing").css({"transform" : "rotateZ(348deg)"});
-                                    });
-                                });
-                            });
-                        });
-                    });   
+                    }); 
+
+                    rotateWing();   // Rotates the butterfly's wing from concept to design
                 }
             }
             if(position.left >= 1580 && position.left <=2860)
             {
                 if(position.top >= 3995 && position.top <= 4810)
                 {
-                    $("#butterfly").css({"transform": "rotateY(180deg)"}).animate({
-                        left: '-=1960',
-                        top: '-=1465',
-                        width: '+=32',
-                        height: '+=41'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("nav a:nth-child(4)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(5)").css({"background" : "none"});
-                        $("#butterfly").css({"transform": "rotateY(0deg)"});
-                    });
-                    $(".wing").animate({
-                        left: '-=20',
-                        top: '-=300'
-                    }, 500, 'easeInOutSine', function() {
-                        $(".wing").animate({
-                            left: '-=900',
-                            top: '-=50'
-                        }, 1000, 'easeInOutSine', function() {
-                            $(".wing").animate({
-                                left: '-=320',
-                                top: '+=320'
-                            }, 500, 'easeInOutSine', function() {
-                                $(".wing").animate({
-                                    left: '-=200',
-                                    top: '+=700'
-                                }, 1000, 'easeInOutSine', function() {
-                                    $(".wing").animate({
-                                        left: '-=755',
-                                        top: '+=400'
-                                    }, 1000, 'easeInOutSine', function() {
-                                        $(".wing").css({"transform" : "rotateY(340deg)"});
-                                        $(".wing").css({"transform" : "rotateZ(348deg)"});
-                                    });
-                                });
-                            });
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(180deg)"}).animate({
+                        left: '-=1660',
+                        top: '-=1300'
+                    }, 3200, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.7).animate({
+                            left: '-=10',
+                            top: '-=10'
+                        }, 80, 'easeOutSine', function() {
+                            butterfly.fadeTo(30, 1).css({"transform": "rotateY(0deg)"}).attr({src: "images/logo_small.png"});
+                            $("nav a:nth-child(4)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(5)").css({"background" : "none"});
                         });
                     });
+
+                    rotateWing();   // Rotates the butterfly's wing from concept to design
                 }
             }
             if(position.left >= 1580 && position.left <= 2860)
             {
                 if(position.top >= 5319 && position.top <= 6133)
                 {
-                    $("#butterfly").css({"transform": "rotateY(180deg)"}).animate({
-                        left: '-=1540',
-                        top: '-=2755',
-                        width: '+=36',
-                        height: '+=26'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("#butterfly").css({"transform": "rotateY(0deg)"});
-                        $("nav a:nth-child(4)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(6)").css({"background" : "none"});
-                    });
-                    $(".wing").animate({
-                        left: '-=20',
-                        top: '-=300'
-                    }, 500, 'easeInOutSine', function() {
-                        $(".wing").animate({
-                            left: '-=900',
-                            top: '-=50'
-                        }, 1000, 'easeInOutSine', function() {
-                            $(".wing").animate({
-                                left: '-=320',
-                                top: '+=320'
-                            }, 500, 'easeInOutSine', function() {
-                                $(".wing").animate({
-                                    left: '-=200',
-                                    top: '+=700'
-                                }, 1000, 'easeInOutSine', function() {
-                                    $(".wing").animate({
-                                        left: '-=755',
-                                        top: '+=400'
-                                    }, 1000, 'easeInOutSine', function() {
-                                        $(".wing").css({"transform" : "rotateY(340deg)"});
-                                        $(".wing").css({"transform" : "rotateZ(348deg)"});
-                                    });
-                                });
-                            });
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(180deg)"}).animate({
+                        left: '-=1660',
+                        top: '-=2785'
+                    }, 3200, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.7).animate({
+                            left: '-=10',
+                            top: '-=10'
+                        }, 80, 'easeOutSine', function() {
+                            butterfly.fadeTo(30, 1).css({"transform": "rotateY(0deg)"}).attr({src: "images/logo_small.png"});
+                            $("nav a:nth-child(4)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(6)").css({"background" : "none"});
                         });
                     });
+                    
+                    rotateWing();   // Rotates the butterfly's wing from concept to design
                 }
             }
         });
     });
+    // End fourth link
 
+    // Fifth link
     $("nav a:nth-child(5)").click(function() {
-        $("#butterfly").each(function() {
-            var position = $("#butterfly").position();
-            console.log(position);
+        butterfly.each(function() {
+
+            var position = butterfly.position();
+            
             if(position.left >= 1580 && position.left <= 2860)
             {
                 if(position.top >= 0 && position.top <= 814)
                 {
-                    $("#butterfly").animate({
-                        left: '+=110',
-                        top: '+=4040',
-                        width: '-=106',
-                        height: '-=105'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("nav a:nth-child(5)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(1)").css({"background" : "none"});
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(180deg)"}).animate({
+                        left: '-=175',
+                        top: '+=3928',
+                        width: '-=67',
+                        height: '-=49'
+                    }, 3400, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.7).animate({
+                            left: '-=10',
+                            top: '+=10'
+                        }, 100, 'easeOutSine', function() {
+                            butterfly.fadeTo(30, 1).attr({src: "images/logo_small.png"}).css({"transform": "rotateY(0deg)"});
+                            $("nav a:nth-child(5)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(1)").css({"background" : "none"});
+                        });
                     });
                 }
             }
@@ -614,15 +499,19 @@ $(document).ready(function() {
             {
                 if(position.top >= 1324 && position.top <= 2138)
                 {
-                    $("#butterfly").css({"transform": "rotateY(180deg)"}).animate({
-                        left: '-=1280',
-                        top: '+=2750',
-                        width: '+=39',
-                        height: '+=14'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("#butterfly").css({"transform": "rotateY(0deg)"});
-                        $("nav a:nth-child(5)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(2)").css({"background" : "none"});
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(180deg)"}).animate({
+                        left: '-=1515',
+                        top: '+=2588'
+                    }, 3400, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.7).animate({
+                            left: '-=10',
+                            top: '+=10'
+                        }, 100, 'easeOutSine', function() {
+                            butterfly.fadeTo(30, 1).attr({src: "images/logo_small.png"}).css({"transform": "rotateY(0deg)"});
+                            $(".light").fadeOut(500);
+                            $("nav a:nth-child(5)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(2)").css({"background" : "none"});
+                        });
                     });
                 }
             }
@@ -630,68 +519,87 @@ $(document).ready(function() {
             {
                 if(position.top >= 1324 && position.top <= 2138)
                 {
-                    $("#butterfly").attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(180deg)"}).animate({
-                        left: '-=230',
-                        top: '+=2795',
-                        width: '-=1',
-                        height: '+=22'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("#butterfly").css({"transform": "rotateY(0deg)"});
-                        $("nav a:nth-child(5)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(3)").css({"background" : "none"});
-                    })
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(180deg)"}).animate({
+                        left: '-=730',
+                        top: '+=2660'
+                    }, 3200, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.7).animate({
+                            left: '-=10',
+                            top: '+=10'
+                        }, 20, 'easeOutSine', function() {
+                            butterfly.fadeTo(30, 1).css({"transform": "rotateY(0deg)"}).attr({src: "images/logo_small.png"});
+                            $("nav a:nth-child(5)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(3)").css({"background" : "none"});
+                        });
+                    });
                 }
             }
             if(position.left >= 0 && position.left <= 1280)
             {
                 if(position.top >= 2670 && position.top <= 3695)
                 {
-                    $("#butterfly").animate({
-                        left: '+=1960',
-                        top: '+=1465',
-                        width: '-=32',
-                        height: '-=41'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("nav a:nth-child(5)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(4)").css({"background" : "none"});
+                    butterfly.attr({src: "images/logosmall.gif"}).animate({
+                        left: '+=1660',
+                        top: '+=1300'
+                    }, 3000, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.7).animate({
+                            left: '+=10',
+                            top: '+=10'
+                        }, 20, 'easeOutSine', function() {
+                            butterfly.fadeTo(30, 1).attr({src: "images/logo_small.png"});
+                            $("nav a:nth-child(5)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(4)").css({"background" : "none"});
+                        });
                     });       
+
+                    backWing(); // Returns the wing from design section to concept section
                 }
             }
             if(position.left >= 1580 && position.left <= 2860)
             {
                 if(position.top >= 5319 && position.top <= 6133)
                 {
-                    $("#butterfly").animate({
-                        left: '+=420',
-                        top: '-=1290',
-                        width: '+=4',
-                        height: '-=15'
-                    }, 4000, 'easeInOutSine',function() {
-                        $("nav a:nth-child(5)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(6)").css({"background" : "none"});
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(0deg)"}).animate({
+                        top: '-=1475'
+                    }, 3000, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.7).animate({
+                            top: '-=10'
+                        }, 20, 'easeOutSine',function() {
+                            butterfly.fadeTo(30, 1).attr({src: "images/logo_small.png"});
+                            $("nav a:nth-child(5)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(6)").css({"background" : "none"});
+                        });
                     });
                 }
             }
         });
     });
+    // End fifth link
 
+    // Sixth link
     $("nav a:nth-child(6)").click(function() {
-        $("#butterfly").each(function() {
-            var position = $("#butterfly").position();
-            console.log(position);
+        butterfly.each(function() {
+
+            var position = butterfly.position();
+            
             if(position.left >= 1580 && position.left <= 2860)
             {
                 if(position.top >= 0 && position.top <= 814)
                 {
-                    $("#butterfly").css({"transform": "rotateY(180deg)"}).animate({
-                        left: '-=310',
-                        top: '+=5330',
-                        width: '-=110',
-                        height: '-=90'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("#butterfly").css({"transform": "rotateY(0deg)"});
-                        $("nav a:nth-child(6)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(1)").css({"background" : "none"});
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(180deg)"}).animate({
+                        left: '-=175',
+                        top: '+=5413',
+                        width: '-=67',
+                        height: '-=49'
+                    }, 3800, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.7).animate({
+                            left: '-=10',
+                            top: '+=10'
+                        }, 15, 'easeOutSine', function() {
+                            butterfly.fadeTo(30, 1).attr({src: "images/logo_small.png"});
+                            $("nav a:nth-child(6)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(1)").css({"background" : "none"});
+                        });
                     });
                 }
             }
@@ -699,15 +607,19 @@ $(document).ready(function() {
             {
                 if(position.top >= 1324 && position.top <= 2138)
                 {
-                    $("#butterfly").css({"transform": "rotateY(180deg)"}).animate({
-                        left: '-=1700',
-                        top: '+=4040',
-                        width: '+=35',
-                        height: '+=29'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("#butterfly").css({"transform": "rotateY(0deg)"});
-                        $("nav a:nth-child(6)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(2)").css({"background" : "none"});
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(180deg)"}).animate({
+                        left: '-=1515',
+                        top: '+=4073'
+                    }, 3700, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.7).animate({
+                            left: '-=10',
+                            top: '+=10'
+                        }, 15, 'easeOutSine', function() {
+                            butterfly.fadeTo(30, 1).attr({src: "images/logo_small.png"});
+                            $(".light").fadeOut(500);
+                            $("nav a:nth-child(6)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(2)").css({"background" : "none"});
+                        });
                     });
                 }
             }
@@ -715,15 +627,18 @@ $(document).ready(function() {
             {
                 if(position.top >= 1324 && position.top <= 2138)
                 {
-                    $("#butterfly").attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(180deg)"}).animate({
-                        left: '-=635',
-                        top: '+=4085',
-                        width: '-=5',
-                        height: '+=37'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("#butterfly").css({"transform": "rotateY(0deg)"});
-                        $("nav a:nth-child(6)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(3)").css({"background" : "none"});
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(180deg)"}).animate({
+                        left: '-=730',
+                        top: '+=4145'
+                    }, 3700, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.7).animate({
+                            left: '-=10',
+                            top: '+=10'
+                        }, 50, 'easeOutSine', function() {
+                            butterfly.fadeTo(30, 1).attr({src: "images/logo_small.png"});
+                            $("nav a:nth-child(6)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(3)").css({"background" : "none"});
+                        });
                     });
                 }
             }
@@ -731,82 +646,130 @@ $(document).ready(function() {
             {
                 if(position.top >= 2670 && position.top <= 3695)
                 {
-                    $("#butterfly").animate({
-                        left: '+=1540',
-                        top: '+=2755',
-                        width: '-=36',
-                        height: '-=26'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("nav a:nth-child(6)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(4)").css({"background" : "none"});
-                    })
+                    butterfly.attr({src: "images/logosmall.gif"}).animate({
+                        left: '+=1660',
+                        top: '+=2785'
+                    }, 3400, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.7).animate({
+                            left: '+=10',
+                            top: '+=10'
+                        }, 50, 'easeOutSine', function() {
+                            butterfly.fadeTo(30, 1).attr({src: "images/logo_small.png"}).css({"transform": "rotateY(180deg)"});
+                            $("nav a:nth-child(6)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(4)").css({"background" : "none"});
+                        });
+                    });
+
+                    backWing(); // Returns the wing from design section to concept section
                 }
             }
             if(position.left >= 1580 && position.left <= 2860)
             {
                 if(position.top >= 3995 && position.top <= 4810)
                 {
-                    $("#butterfly").css({"transform": "rotateY(180deg)"}).animate({
-                        left: '-=420',
-                        top: '+=1290',
-                        width: '-=4',
-                        height: '+=15'
-                    }, 4000, 'easeInOutSine', function() {
-                        $("nav a:nth-child(6)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                        $("nav a:nth-child(5)").css({"background" : "none"});
-                        $("#butterfly").css({"transform": "rotateY(0deg)"});
+                    butterfly.attr({src: "images/logosmall.gif"}).css({"transform": "rotateY(180deg)"}).animate({
+                        top: '+=1475'
+                    }, 3000, 'easeInOutSine', function() {
+                        butterfly.fadeTo(10, 0.7).animate({
+                            top: '+=10'
+                        }, 50, 'easeOutSine', function() {
+                            butterfly.fadeTo(30, 1).attr({src: "images/logo_small.png"});
+                            $("nav a:nth-child(6)").css({"background" : "url(images/menuBar.png) no-repeat center"});
+                            $("nav a:nth-child(5)").css({"background" : "none"});
+                        });
                     });
                 }
             }
         });
     });
-    
-    // Show and hide video section
+    // End sixth link
+}
+
+// Shows and hides the video section
+function showHideVideo() {
+
+    var video = $("#video");
+
+    // Display the video section and autoplay the video when click the play button
     $("#playbtn").click(function() {
-        $("#closebtn").show('slow');
-        $("#video").animate({
-            left: '-=1580'
-        }, 2000, 'easeInOutSine');
+        video.each(function() {
+
+            var position = video.position();
+            
+            if(position.left >= 1580)
+            {
+                $("#closebtn").show('slow');
+                video.animate({
+                    left: '-=1580'
+                }, 1800, 'easeInOutSine', function() {
+                    $('iframe#vimeo-player').attr('src','http://player.vimeo.com/video/70869094?title=0&amp;byline=0&amp;portrait=0&autoplay=1');
+                });
+            }
+        });
     });
-    $("#closebtn").click(function() {
+
+    // Hide the video section and stops the video when click the exit button
+    $("#closebtn").click(function() { 
         $(this).hide('slow');
         $("#video").animate({
             left: '+=1580'
-        }, 2000, 'easeInOutSine');
-    });
-});
-
-
-function getPos() {
-
-    var position = $("#butterfly").position();
-    console.log(position);
-            
-            if(position.left >= 1580 && position.left <= 2860)
-            {
-                if(position.top >= 0 && position.top <= 814)
-                {
-                    $("#butterfly").animate({
-                        left: '+=700'
-                    }, 1000, 'easeInOutSine', function() {
-                        $("#butterfly").animate({
-                            left: '+=290',
-                            top: '+=400',
-                            width: '-=72',
-                            height: '-=59'
-                        }, 800, 'easeInOutSine', function() {
-                            $("#butterfly").animate({
-                                left: '+=400',
-                                top: '+=890',
-                                width: '-=73',
-                                height: '-=60'
-                            }, 2000, 'easeInOutSine', function() {
-                                $("#idea").css({"background": "url(images/idea.png)"});
-                                $("nav a:nth-child(2)").css({"background" : "url(images/menuBar.png) no-repeat center"});
-                                $("nav a:nth-child(1)").css({"background" : "none"});
-                            });
-                        });
-                    });        
-                }
-            }
+        }, 1800, 'easeInOutSine', function() {
+            $('iframe#vimeo-player').attr('src','');
+        });
+    });    
 }
+
+
+// Rotates the butterfly's wing from concept to design
+function rotateWing() {
+
+    var $wing = $(".wing")
+
+    $wing.animate({
+        left: '-=250',
+        top: '-=300'
+    }, 
+    {
+        step: function(now, fx) {
+            $(this).css('-webkit-transform','rotate('+now+'deg)');
+            $(this).css('-moz-transform','rotate('+now+'deg)'); 
+            $(this).css('-ms-transform','rotate('+now+'deg)');
+            $(this).css('-o-transform','rotate('+now+'deg)');
+            $(this).css('transform','rotate('+now+'deg)');
+            }, duration: 700
+        }, 'linear'); 
+
+        $wing.animate({
+        left: '-=1960',
+        top: '+=1520'
+    }, 
+    {
+        step: function(now, fx) {
+            $(this).css('-webkit-transform','rotate('+(now+244)+'deg)');
+            $(this).css('-moz-transform','rotate('+(now+244)+'deg)'); 
+            $(this).css('-ms-transform','rotate('+(now+244)+'deg)');
+            $(this).css('-o-transform','rotate('+(now+244)+'deg)');
+            $(this).css('transform','rotate('+(now+244)+'deg)');
+            }, duration: 2800
+        }, 'linear');                
+}
+
+// Returns the wing from design section to concept section
+function backWing() {
+    var $wing = $(".wing");
+
+    $wing.animate({
+        left: '+=2210',
+        top: '-=1219'
+    },
+    {
+        step: function(now, fx) {
+            $(this).css('-webkit-transform','rotate('+(now+32.5)+'deg)');
+            $(this).css('-moz-transform','rotate('+(now+32.5)+'deg)'); 
+            $(this).css('-ms-transform','rotate('+(now+32.5)+'deg)');
+            $(this).css('-o-transform','rotate('+(now+32.5)+'deg)');
+            $(this).css('transform','rotate('+(now+32.5)+'deg)');
+        }, duration: 3800
+    }, 'easeInOutSine');
+}
+

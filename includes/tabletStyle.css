@@ -1,0 +1,452 @@
+/*-----------------------------------------------
+Purpose: Main CSS File
+Version: 0.3
+Author: Shimi Kahlon & Kobi Pimat
+Designer: Eldad Tzadok
+Date: 11-7-13
+-----------------------------------------------*/
+
+
+/* General Definitions */
+
+	*{
+		margin: 0;
+		padding: 0;
+	}
+
+	@font-face
+	{
+		font-family: Open Sans Light, sans-serif;
+		src: url(OpenSans-Light.eot),
+			 url(OpenSans-Light.ttf),
+			local(Open Sans);
+	}
+
+	body
+	{
+		font-family: 'Open Sans Light', sans-serif;
+		color: #FFFFFF;
+		font-size: 8pt;
+		background: #000000;
+		overflow: hidden;
+	}
+
+	#wrapper
+	{
+		width: 800px;
+		height: 5216px;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	.clear
+	{
+		clear: both;
+	}
+
+	header, nav, section, article, aside, footer, p, a, ul, li
+	{
+		color: #FFFFFF;
+	}
+
+
+	h1
+	{
+		font-size: 24pt;
+	}
+
+	/* Navigation */
+	nav
+	{
+		width: 100%;
+		top: 30px;
+		left: 0;
+		margin: 0 auto;
+		position: fixed;
+		z-index: 100;
+	}
+
+	nav a:link, nav a:visited
+	{
+		width: 5%;
+		margin-right: 2%;
+		position: relative;
+		left: 30%;
+		font-size: 8pt;
+		text-decoration: none;
+		text-align: center;
+		float: left;
+		display: block;
+	}
+
+	nav a:hover
+	{
+		color: silver;
+	}
+
+	/* Bullets animation */
+	@keyframes bullet1
+	{
+		from {
+			left: 92%; 
+			top: -5%;
+		}
+		to {
+			left: 85%;
+			top: 0;
+		}
+	}
+
+	@-webkit-keyframes bullet1
+	{
+		from {
+			left: 92%; 
+			top: -5%;
+		}
+		to {
+			left: 85%;
+			top: 0;
+		}
+	}
+
+	@keyframes bullet2
+	{
+		from {
+			top: 5%;
+			left: 78%;
+		}
+		to {
+			left: 75%;
+			top: 4%;
+		}
+	}
+
+	@-webkit-keyframes bullet2
+	{
+		from {
+			top: 5%;
+			left: 78%;
+		}
+		to {
+			left: 75%;
+			top: 4%;
+		}
+	}
+
+	@keyframes bullet3
+	{
+		from {
+			top: 9%;
+			left: 67%;
+		}
+		to {
+			top: 8%;
+			left: 65%;
+		}
+	}
+
+	@-webkit-keyframes bullet3
+	{
+		from {
+			top: 9%;
+			left: 67%;
+		}
+		to {
+			top: 8%;
+			left: 65%;
+		}
+	}
+
+	@keyframes bullet4
+	{
+		from {
+			top: 8%;
+			left: 87%;
+		}
+		to {
+			top: 7%;
+			left: 84%;
+		}
+	}
+
+	@-webkit-keyframes bullet4
+	{
+		from {
+			top: 8%;
+			left: 87%;
+		}
+		to {
+			top: 7%;
+			left: 84%;
+		}
+	}
+
+	/* Sections style */
+	#flylight, #idea, #concept, #design, #gallery, #project, #video
+	{
+		width: 96%;
+		height: 15%;
+		position: absolute;
+		left: 2%;
+		margin-bottom: 1.6%;
+	}
+
+	#idea article h1, #gallery article h1, #project article h1 
+	{
+		float: left;
+		margin-right: 3.5%;
+	}
+
+	#idea article p, #gallery article p, #project article p
+	{
+		float: left;
+		padding-top: 0.6em;
+	}	
+
+	#flylight
+	{
+		top: 0;
+	}
+
+	#flylight article.mainArticle
+	{
+		width: 18%;
+		position: relative;
+		top: 34%;
+		left: 47%;
+		text-align: center;
+	}
+
+	#idea
+	{
+		top: 17%;
+	}
+
+	#idea article
+	{
+		width: 60%;
+		position: relative;
+		top: 33%;
+		left: 24%;
+	}
+
+	#concept
+	{
+		top: 34%;
+	}
+
+	#concept article
+	{
+		width: 56%;
+		position: relative;
+		top: 25%;
+		left: 30%;
+	}
+
+	#concept article h1
+	{
+		margin-right: 3%;
+	}
+
+	#concept article p 
+	{
+		float: left;
+		padding-top: 0.5em;
+	}
+
+	#design
+	{
+		top: 51%;
+	}
+
+	#design article
+	{
+		width: 60%;
+		position: relative;
+		top: 25%;
+		left: 40%;
+	}
+
+	#design article p
+	{
+		padding-top: 0.5em;
+	}
+
+	#video
+	{
+		top: 51%;
+		left: 105%;
+		z-index: 1000;
+	}
+
+	#video aside
+	{
+		width: 10%;
+		height: 75%;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 1000;
+		background: #000000;
+	}
+
+	iframe
+	{
+		width: 100%;
+		height: 80%;
+		z-index: 1000;
+		background: #000000;
+	}
+
+	#gallery
+	{
+		top: 68%;
+		background: url(../images/gallery_tablet.png) no-repeat;
+	}
+
+	#gallery article
+	{
+		width: 50%;
+		position: relative;
+		top: 33%;
+		left: 29%;
+	}
+
+	#project
+	{
+		top: 85%;
+		background: url(../images/project_tablet.png);
+	}
+
+	#project article
+	{
+		width: 85%;
+		position: relative;
+		top: 25%;
+		left: 15%;
+	}
+	/* Element to move */
+	#butterfly
+	{
+		width: 165px;
+		height: 137px;
+		position: absolute;
+		top: 3.8%;
+		left: 35%;
+		z-index: 10;
+	}
+
+	.hexagons
+	{
+		width: 800px;
+		height: 547px;
+		position: absolute;
+		left: 3%;
+		top: 36%;
+		z-index: 100;
+	}
+
+	.bullet1, .bullet2, .bullet3, .bullet4, .bullet5, .bullet6, .bullet7, .wing
+	{
+		position: absolute;
+		z-index: 10;
+	}
+
+	.bullet1
+	{
+		animation: bullet1 12s infinite alternate;
+		-webkit-animation: bullet1 12s infinite alternate;
+	}
+
+	.bullet2
+	{
+		animation: bullet2 30s infinite alternate;
+		-webkit-animation: bullet2 30s infinite alternate;
+	}
+
+	.bullet3
+	{
+		animation: bullet3 35s infinite alternate;
+		-webkit-animation: bullet3 35s infinite alternate;
+	}
+
+	.bullet4
+	{
+		animation: bullet4 30s infinite alternate;
+		-webkit-animation: bullet4 30s infinite alternate;
+	}
+
+	.bullet5
+	{
+		top: 11%;
+		left: 82%;
+	}
+
+	.bullet6
+	{
+		top: 8%;
+		left: 20%;
+	}
+
+	.bullet7
+	{
+		top: 12%;
+		left: 0;
+	}
+
+	.light
+	{
+		width: 100%;
+		height: 18%;
+		position: absolute;
+		right: 0;
+		top: 12%;
+		z-index: -5;
+		display: none;
+	}
+
+	.iphone
+	{
+		position: relative;
+		top: 53%;
+		left: 8%;
+	}
+
+	.wing
+	{
+		width: 80px;
+		height: 100px;
+		left: 67%;
+		top: 39.3%;
+	}
+
+	#playbtn
+	{
+		width: 71px;
+		height: 72px;
+		background: url(../images/play_btn.png);
+		position: absolute;
+		top: 50%;
+		left: 43%;
+		border: 0;
+		cursor: pointer;
+	}
+
+	#playbtn:hover
+	{
+		background: url(../images/play_btn_glow.png);
+	}
+
+	#closebtn
+	{
+		width: 21px;
+		height: 21px;
+		background: url(../images/exit_video.png);
+		position: absolute;
+		top: 2%;
+		left: 35%;
+		border: 0;
+		cursor: pointer;
+		display: none;
+		z-index: 1001;
+	}
