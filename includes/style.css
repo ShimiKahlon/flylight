@@ -1,11 +1,13 @@
 /*-----------------------------------------------
 Purpose: Main CSS File
-Version: 0.2
+Version: 0.3
 Author: Shimi Kahlon
 Designer: Eldad Tzadok
 Date: 11-7-13
 -----------------------------------------------*/
 
+
+/* General Definitions */
 *{
 	margin: 0;
 	padding: 0;
@@ -13,113 +15,31 @@ Date: 11-7-13
 
 @font-face
 {
-	font-family: 'Open Sans Light', sans-serif;
-	src: url(http://fonts.googleapis.com/css?family=Open+Sans),
-		local('Open Sans Light');
+	font-family: Open Sans Light, sans-serif;
+	src: url(OpenSans-Light.eot),
+		 url(OpenSans-Light.ttf),
+		local(Open Sans);
 }
-
-/* Elements animation */
-
-/* Arrows animation */
-@keyframes point-down {
-	from {
-		top: 0;
-	}
-	to {
-		top: 5px;
-	}
-}
-
-@-webkit-keyframes point-down {
-	from {
-		top: 0;
-	}
-	to {
-		top: 5px;
-	}
-}
-
-/* Bullets animation */
-@keyframes bullet1
-{
-	from {
-		left: 2718px; 
-		top: 13px;
-	}
-	to {
-		left: 2500px;
-		top: 0;
-	}
-}
-
-@-webkit-keyframes bullet1
-{
-	from {
-		left: 2718px; 
-		top: 13px;
-	}
-	to {
-		left: 2500px;
-		top: 0;
-	}
-}
-
-@keyframes bullet2
-{
-	from {
-		left: 2629px;
-		top: 536px;
-	}
-	to {
-		left: 2000px;
-		top: 500px;
-	}
-}
-
-@-webkit-keyframes bullet2
-{
-	from {
-		left: 2629px;
-		top: 536px;
-	}
-	to {
-		left: 2000px;
-		top: 500px;
-	}
-}
-
-@keyframes bullet5
-{
-	from {
-		left: 2706px;
-		top: 372px;
-	}
-	to {
-		left: 2600px;
-		top: 400px;
-	}
-}
-
-@-webkit-keyframes bullet5
-{
-	from {
-		left: 2706px;
-		top: 372px;
-	}
-	to {
-		left: 2600px;
-		top: 400px;
-	}
-}
-
 
 body
 {
 	font-family: 'Open Sans Light', sans-serif;
 	color: #FFFFFF;
-	font-size: 14pt;
+	font-size: 12pt;
 	background: #000000;
 	overflow: hidden;
+}
+
+#wrapper
+{
+	width: 4440px;
+	height: 6116px;
+	position: relative;
+}
+
+.clear
+{
+	clear: both;
 }
 
 header, nav, section, article, aside, footer, p, a, ul, li
@@ -129,229 +49,10 @@ header, nav, section, article, aside, footer, p, a, ul, li
 
 h1
 {
-	font-size: 32pt;
-	line-height: 36pt;
-	font-family: 'Open Sans Light';
+	font-size: 28pt;
 }
 
-#wrapper
-{
-	width: 4440px;
-	height: 6134px;
-	/*background-color: yellow;*/
-}
-
-.clear
-{
-	clear: both;
-}
-
-#flylight, #idea, #concept, #design, #gallery, #project, #video
-{
-	width: 1280px;
-	height: 814px;
-	position: absolute;
-	/*background-color: #000000;*/
-}
-#idea article h1, #design article h1, #gallery article h1, #project article h1 
-{
-	float: left;
-	margin-right: 3.5%;
-}
-
-#idea article p, #concept article p, #design article p, #gallery article p, #project article p
-{
-	float: left;
-	padding-top: 0.2em;
-}
-
-/* Flylight section */
-#flylight
-{
-	/*background: url(../images/flylight.png);*/
-	top: 0;
-	left: 1580px;
-}
-
-#flylight article.mainArticle
-{
-	width: 16%;
-	position: relative;
-	top: 45%;
-	left: 45%;
-	text-align: center;
-}
-
-#flylight article.secondary
-{
-	width: 8%;
-	position: absolute;
-	top: 74.5%;
-	left: 50%;
-	font-size: 10.5pt;
-	text-align: center;
-}
-
-#flylight article.secondary img.arrows
-{
-	position: relative;
-	animation: point-down 0.5s alternate infinite;
-	-webkit-animation: point-down 0.5s alternate infinite;
-}
-/* End Flylight section */
-
-/* Idea section */
-#idea
-{
-	background: none;
-	top: 1324px;
-	left: 3160px;
-}
-
-#idea article
-{
-	width: 60%;
-	position: relative;
-	top: 33%;
-	left: 24%;
-}
-/* End Idea section */
-
-/* Concept section */
-#concept
-{
-	background: url(../images/concept.png);
-	top: 1324px;
-	left: 1580px;
-}
-
-#concept article
-{
-	width: 65%;
-	position: relative;
-	top: 50%;
-	left: 19%;
-}
-
-#concept article h1
-{
-	float: left;
-	margin-right: 3%;
-}
-/* End Concept section */
-
-/* Design section */
-#design
-{
-	background: url(../images/design.png);
-	top: 2672px;
-	left: 0;
-}
-
-#design article
-{
-	width: 60%;
-	position: relative;
-	top: 38%;
-	left: 39%;
-}
-
-#design article p
-{
-	padding-top: 0.5em;
-}
-/* End Design section */
-
-/* Video section */
-#video
-{
-	top: 2671px;
-	left: 1580px;
-	z-index: 1000;
-}
-
-video
-{
-	width: 100%;
-	height: 80%;
-	background: rgba(104, 104, 104, 0.5);
-}
-/* End video section */
-
-/* Gallery section */
-#gallery
-{
-	background: url(../images/gallery.png);
-	top: 3995px;
-	left: 1580px;
-}
-
-#gallery article
-{
-	width: 40%;
-	position: relative;
-	top: 51%;
-	left: 37%;
-}
-/* End Gallery section */
-
-/* Project section */
-#project
-{
-	top: 5320px;
-	left: 1580px;
-}
-
-#project article
-{
-	width: 85%;
-	position: relative;
-	top: 40%;
-	left: 16%;
-}
-/* End Project section */
-
-
-#flylightBottom
-{
-	width: 1280px;
-	height: 512px;
-	position: absolute;
-	top: 813px;
-	left: 1580px;
-	background: url(../images/flylight_btm.png);
-}
-
-#flylightRight
-{
-	width: 300px;
-	height: 2671px;
-	position: absolute;
-	top: 0px;
-	left: 2860px;
-	background: url(../images/flylightRight2.png) no-repeat;
-}
-
-#conceptRight
-{
-	width: 300px;
-	height: 1347px;
-	position: absolute;
-	top: 1324px;
-	left: 2860px;
-	background: url(../images/conceptRight.png) no-repeat;
-}
-
-#conceptBottom
-{
-	width: 1280px;
-	height: 533px;
-	position: absolute;
-	top: 2138px;
-	left: 1580px;
-	background: url(../images/conceptBottom.png);
-}
-
+/* Navigation */
 nav
 {
 	width: 100%;
@@ -379,89 +80,813 @@ nav a:hover
 	color: silver;
 }
 
-/* Element to move */
-#butterfly
+/* Bullets animation */
+@keyframes bullet1
 {
-	width: 259px;
-	height: 226px;
-	position: absolute;
-	top: 240px;
-	left: 2020px;
-	z-index: 999;
+	from {
+		left: 2718px; 
+		top: 13px;
+	}
+	to {
+		left: 2600px;
+		top: 0;
+	}
+}
+
+@-webkit-keyframes bullet1
+{
+	from {
+		left: 2718px; 
+		top: 13px;
+	}
+	to {
+		left: 2600px;
+		top: 0;
+	}
+}
+
+@keyframes bullet2
+{
+	from {
+		top: 297px;
+		left: 2585px;
+	}
+	to {
+		left: 2500px;
+		top: 287px;
+	}
+}
+
+@-webkit-keyframes bullet2
+{
+	from {
+		top: 297px;
+		left: 2585px;
+	}
+	to {
+		left: 2500px;
+		top: 287px;
+	}
+}
+
+@keyframes bullet3
+{
+	from {
+		top: 495px;
+		left: 2470px;
+	}
+	to {
+		top: 510px;
+		left: 2540px
+	}
+}
+
+@-webkit-keyframes bullet3
+{
+	from {
+		top: 495px;
+		left: 2470px;
+	}
+	to {
+		top: 510px;
+		left: 2540px;
+	}
+}
+
+@keyframes bullet4
+{
+	from {
+		top: 470px;
+		left: 2670px;
+	}
+	to {
+		top: 350px;
+		left: 2750px;
+	}
+}
+
+@-webkit-keyframes bullet4
+{
+	from {
+		top: 470px;
+		left: 2670px;
+	}
+	to {
+		top: 350px;
+		left: 2750px;
+	}
+}
+
+@keyframes bullet5
+{
+	from {
+		left: 2580px;
+		top: 660px;
+	}
+	to {
+		left: 2500px;
+		top: 670px;
+	}
+}
+
+@-webkit-keyframes bullet5
+{
+	from {
+		left: 2580px;
+		top: 660px;
+	}
+	to {
+		left: 2500px;
+		top: 670px;
+	}
+}
+
+@keyframes bullet6
+{
+	from {
+		top: 600px;
+		left: 2160px;
+	}
+	to {
+		left: 2100px;
+		top: 610px;
+	}
+}
+
+@-webkit-keyframes bullet6
+{
+	from {
+		top: 600px;
+		left: 2160px;
+	}
+	to {
+		left: 2100px;
+		top: 610px;
+	}
+}
+
+@keyframes bullet7
+{
+	from {
+		top: 620px;
+		left: 1790px;
+	}
+	to {
+		left: 1800px;
+		top: 600px;
+	}
+}
+
+@-webkit-keyframes bullet7
+{
+	from {
+		top: 620px;
+		left: 1790px;
+	}
+	to {
+		left: 1800px;
+		top: 600px;
+	}
 }
 
 
-.bullet1, .bullet2, .bullet3, .bullet4, .bullet5, .bullet6, .wing
+
+/* Sections style */
+#flylight, #idea, #concept, #design, #gallery, #project, #video
+{
+	width: 1280px;
+	height: 814px;
+	position: absolute;
+}
+
+#idea article h1, #design article h1, #gallery article h1, #project article h1 
+{
+	float: left;
+	margin-right: 3.5%;
+}
+
+#idea article p, #gallery article p, #project article p
+{
+	float: left;
+	padding-top: 0.6em;
+}
+
+/* Flylight section */
+#flylight
+{
+	top: 0;
+	left: 1580px;
+}
+
+#flylight article.mainArticle
+{
+	width: 16%;
+	position: relative;
+	top: 35%;
+	left: 45%;
+	text-align: center;
+}
+/* End Flylight section */
+
+/* Idea section */
+#idea
+{
+	top: 1324px;
+	left: 3160px;
+}
+
+#idea article
+{
+	width: 60%;
+	position: relative;
+	top: 33%;
+	left: 24%;
+}
+/* End Idea section */
+
+/* Concept section */
+#concept
+{
+	top: 1324px;
+	left: 1580px;
+}
+
+#concept article
+{
+	width: 46%;
+	position: relative;
+	top: 27%;
+	left: 20%;
+}
+
+#concept article h1
+{
+	float: left;
+	margin-right: 3%;
+}
+
+#concept article p
+{
+	float: left;
+	padding-top: 0.5em;	
+}
+/* End Concept section */
+
+/* Design section */
+#design
+{
+	top: 2650px;
+	left: 0;
+}
+
+#design article
+{
+	width: 60%;
+	position: relative;
+	top: 32%;
+	left: 39%;
+}
+
+#design article p
+{
+	float: left;
+	padding-top: 0.85em;
+}
+/* End Design section */
+
+/* Video section */
+#video
+{
+	top: 2650px;
+	left: 1580px;
+	z-index: 1000;
+}
+
+#video aside
+{
+	width: 5%;
+	height: 75%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 1000;
+	background: #000000;
+}
+
+iframe
+{
+	width: 100%;
+	height: 80%;
+}
+/* End video section */
+
+/* Gallery section */
+#gallery
+{
+	background: url(../images/btrflys.png);
+	top: 3976px;
+	left: 1580px;
+}
+
+#gallery article
+{
+	width: 40%;
+	position: relative;
+	top: 33%;
+	left: 29%;
+}
+/* End Gallery section */
+
+/* Project section */
+#project
+{
+	background: url(../images/project_btrfly.png);
+	top: 5302px;
+	left: 1580px;
+}
+
+#project article
+{
+	width: 85%;
+	position: relative;
+	top: 25%;
+	left: 18%;
+}
+/* End Project section */
+
+.hexagons
 {
 	position: absolute;
+	left: 1654px;
+	top: 1472px;
 	z-index: 100;
+}
+
+/* Element to move */
+#butterfly
+{
+	width: 165px;
+	height: 137px;
+	position: absolute;
+	top: 210px;
+	left: 2070px;
+}
+
+
+.bullet1, .bullet2, .bullet3, .bullet4, .bullet5, .bullet6, .bullet7, .wing, .iphone, .butterflys
+{
+	position: absolute;
+	z-index: 10;
 }
 
 .bullet1
 {
-	animation: bullet1 5s infinite alternate;
-	-webkit-animation: bullet1 12s infinite alternate;
+	animation: bullet1 12s linear infinite alternate;
+	-webkit-animation: bullet1 12s linear infinite alternate;
 }
 
 .bullet2
 {
-	animation: bullet2 20s linear infinite alternate;
-	-webkit-animation: bullet2 20s linear infinite alternate;
+	animation: bullet2 15s linear infinite alternate;
+	-webkit-animation: bullet2 15s linear infinite alternate;
 }
 
 .bullet3
 {
-	left: 1656px;
-	top: 787px;
+	animation: bullet3 12s linear infinite alternate;
+	-webkit-animation: bullet3 12s linear infinite alternate;
 }
 
 .bullet4
 {
-	left: 2345px;
-	top: 690px;
+	animation: bullet4 10s linear infinite alternate;
+	-webkit-animation: bullet4 10s linear infinite alternate;
 }
 
 .bullet5
 {
-	animation: bullet5 4s linear infinite alternate;
-	-webkit-animation: bullet5 4s linear infinite alternate;
+	animation: bullet5 14s linear infinite alternate;
+	-webkit-animation: bullet5 14s linear infinite alternate;
 }
 
 .bullet6
 {
-	left: 2627px;
-	top: 737px;
+	animation: bullet6 12s linear infinite alternate;
+	-webkit-animation: bullet6 12s linear infinite alternate;
 }
 
+.bullet7
+{
+	animation: bullet7 4s linear infinite alternate;
+	-webkit-animation: bullet7 4s linear infinite alternate;
+}
+
+.light 
+{
+	position: absolute;
+	right: 0;
+	top: 700px;
+	z-index: -5;
+	display: none;
+}
 
 .wing
 {
-	left: 2520px;
-	top: 1938px;*
+	left: 2532px;
+	top: 1766px;
+	z-index: 100;
+}
+
+.iphone
+{
+	top: 230px;
+	left: 265px;
 }
 
 #playbtn
 {
 	width: 71px;
 	height: 72px;
-	background: url(../images/playbtn.png);
+	background: url(../images/play_btn.png);
 	position: absolute;
-	top: 378px;
+	top: 340px;
 	left: 526px;
 	border: 0;
 	cursor: pointer;
 }
 
+#playbtn:hover
+{
+	background: url(../images/play_btn_glow.png);
+}
+
 #closebtn
 {
-	width: 29px;
-	height: 29px;
-	background: url(../images/close-button.png);
+	width: 21px;
+	height: 21px;
+	background: url(../images/exit_video.png);
 	position: absolute;
-	top: 30px;
-	left: 95%;
+	top: 2%;
+	left: 35%;
 	border: 0;
 	cursor: pointer;
 	display: none;
 	z-index: 1001;
+}
+
+
+@media (max-width: 1000px)
+{
+	#wrapper
+	{
+		width: 800px;
+		height: 5216px;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	body
+	{
+		font-size: 8pt;
+		overflow: scroll;
+	}
+
+	h1
+	{
+		font-size: 24pt;
+	}
+
+	/* Navigation */
+	nav
+	{
+		width: 100%;
+		top: 30px;
+		left: 0;
+		margin: 0 auto;
+		position: fixed;
+		z-index: 100;
+	}
+
+	nav a:link, nav a:visited
+	{
+		width: 5%;
+		margin-right: 2%;
+		position: relative;
+		left: 30%;
+		font-size: 8pt;
+		text-decoration: none;
+		text-align: center;
+		float: left;
+		display: block;
+	}
+
+	nav a:hover
+	{
+		color: silver;
+	}
+
+	/* Bullets animation */
+	@keyframes bullet1
+	{
+		from {
+			left: 92%; 
+			top: -5%;
+		}
+		to {
+			left: 85%;
+			top: 0;
+		}
+	}
+
+	@-webkit-keyframes bullet1
+	{
+		from {
+			left: 92%; 
+			top: -5%;
+		}
+		to {
+			left: 85%;
+			top: 0;
+		}
+	}
+
+	@keyframes bullet2
+	{
+		from {
+			top: 5%;
+			left: 78%;
+		}
+		to {
+			left: 75%;
+			top: 4%;
+		}
+	}
+
+	@-webkit-keyframes bullet2
+	{
+		from {
+			top: 5%;
+			left: 78%;
+		}
+		to {
+			left: 75%;
+			top: 4%;
+		}
+	}
+
+	@keyframes bullet3
+	{
+		from {
+			top: 9%;
+			left: 67%;
+		}
+		to {
+			top: 8%;
+			left: 65%;
+		}
+	}
+
+	@-webkit-keyframes bullet3
+	{
+		from {
+			top: 9%;
+			left: 67%;
+		}
+		to {
+			top: 8%;
+			left: 65%;
+		}
+	}
+
+	@keyframes bullet4
+	{
+		from {
+			top: 8%;
+			left: 87%;
+		}
+		to {
+			top: 7%;
+			left: 84%;
+		}
+	}
+
+	@-webkit-keyframes bullet4
+	{
+		from {
+			top: 8%;
+			left: 87%;
+		}
+		to {
+			top: 7%;
+			left: 84%;
+		}
+	}
+
+	/* Sections style */
+	#flylight, #idea, #concept, #design, #gallery, #project, #video
+	{
+		width: 96%;
+		position: absolute;
+		left: 2%;
+		margin-bottom: 1.6%;
+	}	
+
+	/* Flylight section */
+	#flylight
+	{
+		top: 0;
+	}
+
+	#flylight article.mainArticle
+	{
+		width: 18%;
+		position: relative;
+		top: 34%;
+		left: 47%;
+		text-align: center;
+	}
+	/* End flylight section */
+
+	/* Idea section */
+	#idea
+	{
+		top: 17%;
+	}
+
+	#idea article
+	{
+		width: 60%;
+		position: relative;
+		top: 33%;
+		left: 24%;
+	}
+	/* End Idea section */
+
+	/* Concept section */
+	#concept
+	{
+		top: 34%;
+	}
+
+	#concept article
+	{
+		width: 46%;
+		position: relative;
+		top: 15%;
+		left: 35%;
+	}
+
+	#concept article h1
+	{
+		float: left;
+		margin-right: 3%;
+	}
+	/* End Concept section */
+
+	/* Design section */
+	#design
+	{
+		top: 51%;
+	}
+
+	#design article
+	{
+		width: 60%;
+		position: relative;
+		top: 30%;
+		left: 40%;
+	}
+
+	#design article p
+	{
+		padding-top: 0.5em;
+	}
+	/* End Design section */
+
+	/* Video section */
+	#video
+	{
+		top: 51%;
+		left: 105%;
+		display: none;
+	}
+
+	video
+	{
+		width: 100%;
+		height: 80%;
+	}
+	/* End video section */
+
+	/* Gallery section */
+	#gallery
+	{
+		top: 68%;
+		background: url(../images/gallery_tablet.png) no-repeat;
+	}
+
+	#gallery article
+	{
+		width: 50%;
+		position: relative;
+		top: 33%;
+		left: 29%;
+	}
+	/* End Gallery section */
+
+	/* Project section */
+	#project
+	{
+		top: 85%;
+		background: url(../images/project_tablet.png);
+	}
+
+	/* Element to move */
+	#butterfly
+	{
+		width: 165px;
+		height: 137px;
+		position: absolute;
+		top: 4%;
+		left: 35%;
+		z-index: 10;
+	}
+
+	.hexagons
+	{
+		width: 800px;
+		height: 547px;
+		position: absolute;
+		left: 3%;
+		top: 36%;
+		z-index: 100;
+	}
+
+	.bullet1, .bullet2, .bullet3, .bullet4, .bullet5, .bullet6, .bullet7, .wing
+	{
+		position: absolute;
+		z-index: 10;
+	}
+
+	.bullet1
+	{
+		animation: bullet1 12s infinite alternate;
+		-webkit-animation: bullet1 12s infinite alternate;
+	}
+
+	.bullet2
+	{
+		animation: bullet2 30s infinite alternate;
+		-webkit-animation: bullet2 30s infinite alternate;
+	}
+
+	.bullet3
+	{
+		animation: bullet3 35s infinite alternate;
+		-webkit-animation: bullet3 35s infinite alternate;
+	}
+
+	.bullet4
+	{
+		animation: bullet4 30s infinite alternate;
+		-webkit-animation: bullet4 30s infinite alternate;
+	}
+
+	.bullet5
+	{
+		top: 11%;
+		left: 82%;
+	}
+
+	.bullet6
+	{
+		top: 8%;
+		left: 20%;
+	}
+
+	.bullet7
+	{
+		top: 12%;
+		left: 0;
+	}
+
+	.wing
+	{
+		width: 80px;
+		height: 100px;
+		left: 67%;
+		top: 39.3%;
+	}
+
+	#playbtn
+	{
+		width: 71px;
+		height: 72px;
+		background: url(../images/play_btn.png);
+		position: absolute;
+		top: 37%;
+		left: 43%;
+		border: 0;
+		cursor: pointer;
+	}
 }
